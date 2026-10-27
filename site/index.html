@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Localpedia</title>
+  <meta name="description" content="Everything Wikipedia knows within half an hour on foot.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./">Localpedia</a>
+    <form id="search-form" class="search" autocomplete="off">
+      <input id="q" type="search" placeholder="Place name or postcode" aria-label="Place name or postcode">
+      <button type="submit">Go</button>
+      <button type="button" id="near-me">Near me</button>
+      <button type="button" id="random">Random</button>
+      <select id="lang" aria-label="Wikipedia language">
+        <option value="en">English</option>
+        <option value="simple">Simple English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+        <option value="it">Italiano</option>
+        <option value="nl">Nederlands</option>
+        <option value="pt">Português</option>
+        <option value="ja">日本語</option>
+      </select>
+    </form>
+  </header>
+
+  <main class="layout">
+    <section class="map-wrap">
+      <div id="map"></div>
+      <button id="search-area" class="floating" hidden>Search this area</button>
+      <div id="status" class="status" hidden></div>
+    </section>
+
+    <aside class="results">
+      <div class="results-head">
+        <h2>Results <span id="count"></span></h2>
+        <div class="controls">
+          <input id="filter" type="search" placeholder="Filter these articles" aria-label="Filter these articles">
+          <select id="sort" aria-label="Sort">
+            <option value="distance">Nearest</option>
+            <option value="alpha">A–Z</option>
+          </select>
+        </div>
+      </div>
+      <div id="intro" class="intro">
+        <p><strong>Everything Wikipedia knows within half an hour on foot.</strong></p>
+        <p>Type in somewhere — a town, a street, a landmark, a postcode — or let your browser say where you are. Every Wikipedia article with coordinates inside a 30-minute walk goes on the map.</p>
+        <p>Try <a href="?q=Glasgow">Glasgow</a>, <a href="?q=Bath">Bath</a>, <a href="?q=Whitby">Whitby</a> or <a href="?q=EH1%201YZ">EH1 1YZ</a>.</p>
+        <p class="muted">Your location is never saved, and shared links only carry places you've typed.</p>
+      </div>
+      <ol id="list" class="list"></ol>
+    </aside>
+  </main>
+
+  <footer class="credits">
+    Articles and summaries from <a href="https://www.wikipedia.org/">Wikipedia</a>, available under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; only articles with coordinates appear.
+    Places found with <a href="https://nominatim.org/">Nominatim</a> and <a href="https://postcodes.io/">postcodes.io</a>.
+    Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.
+    Inspired by <a href="https://www.neil-scott.com/walkipedia/">Walkipedia</a>. &copy; 2026 Cole Detrick.
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
